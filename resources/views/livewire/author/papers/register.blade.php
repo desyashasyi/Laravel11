@@ -11,9 +11,8 @@
             <hr>
             <div class="row">
                 <div class="col col-sm-10 text-left">
-                    {{$titleData}}
                     </input>
-                    <x-adminlte-textarea wire:model.live="titleData" label="Title" name="title" placeholder="Please write your paper title!"/>
+                    <x-adminlte-textarea wire:model="title" label="Title" name="title" placeholder="Please write your paper title!"/>
                 </div>
             </div>
             <div class="row">

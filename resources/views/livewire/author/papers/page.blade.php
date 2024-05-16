@@ -1,4 +1,9 @@
 <div>
+    <div class="row">
+        <div class="col col-sm-12 text-left">
+            <livewire:author.papers.lists>
+        </div>
+    </div>
     @if(is_null($addPaperEnable))
         <div class="row">
             <div class="col col-sm-12 text-right">

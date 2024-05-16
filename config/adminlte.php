@@ -304,7 +304,14 @@ return [
             'text'       => 'Papers',
             'route'      => 'author.papers',
             'icon'      => 'far fa-fw fa-file',
-            //'roles'     => ['reviewer', 'committee','author'],
+            'roles'     => ['author'],
+            //'roles' => ['staff'],
+        ],
+        [
+            'text'       => 'Reviewer',
+            'route'      => 'author.papers',
+            'icon'      => 'far fa-fw fa-file',
+            'roles'     => ['reviewer'],
             //'roles' => ['staff'],
         ],
     ],
@@ -324,13 +331,14 @@ return [
     */
 
     'filters' => [
-        JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+        //JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\SearchFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\LangFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\DataFilter::class,
+        App\Http\Controllers\AdminLTEFilter::class,
     ],
 
     /*

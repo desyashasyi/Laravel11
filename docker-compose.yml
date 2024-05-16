@@ -6,8 +6,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: LaravelDock/php
-    container_name: laraveldockPHP
+    image: l11/php
+    container_name: l11PHP
     restart: unless-stopped
     tty: true
     environment:
@@ -22,12 +22,12 @@ services:
   #Nginx
   webserver:
     image: nginx:alpine
-    container_name: laraveldockWebserver
+    container_name: l11Webserver
     restart: unless-stopped
     tty: true
     ports:
-      - "8001:80"
-      - "443:443"
+      - "8005:80"
+      - "444:443"
     volumes:
       - ./:/var/www
       - ./nginx/:/etc/nginx/conf.d/
@@ -36,21 +36,21 @@ services:
   #MySQL
   db:
     image: mysql:5.7.22
-    container_name: laraveldockDB
+    container_name: l11DB
     restart: unless-stopped
     tty: true
     ports:
-      - "3307:3306"
+      - "3310:3306"
     environment:
-      MYSQL_DATABASE: arsys
-      MYSQL_USER: root
-      MYSQL_ROOT_PASSWORD: Ddw8436
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
       - dbdata:/var/lib/mysql/
       - ./mysql/my.cnf:/etc/mysql/my.cnf
-    
+  
 
 #Networks
 networks:
